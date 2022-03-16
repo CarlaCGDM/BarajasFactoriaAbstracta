@@ -1,9 +1,10 @@
 abstract class Baraja {
-    var cartas:MutableList<Carta>
-    var descartadas = mutableListOf<Carta>()
+   var cartas:MutableList<Carta>
+   var descartadas:MutableList<Carta>
 
     init {
         cartas = generarBaraja()
+        descartadas = mutableListOf()
     }
 
     protected abstract fun generarBaraja():MutableList<Carta>
@@ -11,20 +12,27 @@ abstract class Baraja {
     fun barajar() {
         cartas.shuffle()
     }
+
+    //cambiar para que develva
     fun siguienteCarta():Carta? {
-        return if (cartas.isNotEmpty()) {cartas.first()} else {println("No quedan más cartas."); null}
+        return if (cartas.isNotEmpty()) {
+            descartadas.add(cartas.removeFirst())
+            descartadas.last()
+        } else {
+            null
+        }
     }
+
     fun cartasDisponibles():Int {
         return cartas.size
     }
     fun darCartas(num:Int):List<Carta>? {
         if (cartas.size >= num) {
             repeat(num) {
-                descartadas.add(0,cartas.removeFirst())
+                descartadas.add(cartas.removeFirst())
             }
-            return descartadas.take(num)
+            return descartadas.takeLast(num)
         }
-        println("No quedan suficientes cartas.")
         return null
     }
     fun cartasMonton():List<Carta> {

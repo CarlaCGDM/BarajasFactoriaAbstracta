@@ -1,6 +1,7 @@
 class BarajaEspanyola(
     var completa:Boolean = false
 ): Baraja() {
+
     override fun generarBaraja():MutableList<Carta> {
         var numeros:List<Int>
         when (completa) {
