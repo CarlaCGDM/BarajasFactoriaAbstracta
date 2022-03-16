@@ -2,6 +2,11 @@ class Carta(
     val numero:Int,
     val palo:Palo
 ) {
+
+    init {
+        require(numero > 0)
+    }
+
     override fun toString(): String {
         return "${palo.nombres[numero]} de ${palo}"
     }
@@ -18,14 +23,14 @@ enum class PaloEspanyol:Palo {
     COPAS;
     override val nombres = mapOf<Int,String>(
         1 to "As",
-        2 to "2",
-        3 to "3",
-        4 to "4",
-        5 to "5",
-        6 to "6",
-        7 to "7",
-        8 to "8",
-        9 to "9",
+        2 to "Dos",
+        3 to "Tres",
+        4 to "Cuatro",
+        5 to "Cinco",
+        6 to "Seis",
+        7 to "Siete",
+        8 to "Ocho",
+        9 to "Nueve",
         10 to "Sota",
         11 to "Caballo",
         12 to "Rey",
@@ -38,15 +43,15 @@ enum class PaloFrances(val color:Color):Palo {
     CORAZONES(Color.ROJO);
     override val nombres = mapOf<Int,String>(
         1 to "As",
-        2 to "2",
-        3 to "3",
-        4 to "4",
-        5 to "5",
-        6 to "6",
-        7 to "7",
-        8 to "8",
-        9 to "9",
-        10 to "10",
+        2 to "Dos",
+        3 to "Tres",
+        4 to "Cuatro",
+        5 to "Cinco",
+        6 to "Seis",
+        7 to "Siete",
+        8 to "Ocho",
+        9 to "Nueve",
+        10 to "Diez",
         11 to "Jota",
         12 to "Reina",
         13 to "Rey"

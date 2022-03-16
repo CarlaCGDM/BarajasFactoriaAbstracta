@@ -20,9 +20,9 @@ abstract class Baraja {
     fun darCartas(num:Int):List<Carta>? {
         if (cartas.size >= num) {
             repeat(num) {
-                descartadas.add(cartas.removeFirst())
+                descartadas.add(0,cartas.removeFirst())
             }
-            return descartadas.takeLast(num)
+            return descartadas.take(num)
         }
         println("No quedan suficientes cartas.")
         return null
